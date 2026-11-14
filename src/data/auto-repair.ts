@@ -1,58 +1,58 @@
 import type { Cta, Seo, TitleText } from './types';
 
 export const seo: Seo = {
-  title: 'Car and SUV Repair in Willow Springs, IL | Sandi Auto & Truck',
+  title: 'Car & Auto Repair in Willow Springs, IL | Sandi Auto & Truck',
   description:
-    'Car, SUV and light truck repair in Willow Springs, IL. Brakes, engine diagnostics, transmission, A/C, tires, oil changes and suspension. Most repairs done the same day.',
+    'Auto repair for cars, SUVs and light trucks in Willow Springs, IL. Brakes, check engine lights, A/C and oil changes. Most repairs are done the same day.',
 };
 
 export const hero = {
   crumb: 'Auto Repair',
-  title: 'Car, SUV and light truck repair',
-  lead: 'From routine maintenance to complex repairs, on all makes and models. Most jobs are done the same day.',
-  facts: ['All makes and models', 'Foreign and domestic', 'Most repairs same day'],
+  title: 'Auto repair in Willow Springs, IL',
+  lead: 'We fix cars, SUVs and light trucks of every make, from oil changes to engine replacements. Most repairs are done the same day.',
+  facts: ['Foreign and domestic', 'Most repairs same day', 'Clear pricing up front'],
 };
 
 export const services = {
   title: 'What we work on',
-  intro: 'Daily commuters, family SUVs and light-duty trucks all get the same careful work.',
+  intro: 'All of it is done in our Willow Springs shop, close to Justice, Hickory Hills, Burr Ridge, Countryside, Hodgkins and Palos Hills.',
   items: [
-    { title: 'Engine diagnostics and repair', text: 'Accurate diagnosis and expert repairs to keep your engine running smoothly.' },
-    { title: 'Brake service and replacement', text: 'Thorough brake inspections, repairs and replacements to keep you safe.' },
-    { title: 'Transmission service', text: 'Expert maintenance and repairs to keep your transmission in top shape.' },
-    { title: 'A/C and heating repair', text: 'Reliable A/C and heating service, so you stay comfortable all year.' },
-    { title: 'Tire rotation, balancing and replacement', text: 'Regular tire maintenance that extends tire life and improves your ride.' },
-    { title: 'Oil changes and fluid checks', text: 'Routine oil changes and fluid top-offs that protect your engine.' },
-    { title: 'Suspension and steering repair', text: 'Suspension and steering work for better handling and stability.' },
+    { title: 'Engine diagnostics and repair', text: 'We find the cause of a check engine light, rough idle or stalling, then fix it.' },
+    { title: 'Brake service and replacement', text: 'We check pads, rotors, calipers and brake fluid, then replace only what’s worn.' },
+    { title: 'Transmission service', text: 'We service and repair transmissions that slip, shift hard or hesitate going into gear.' },
+    { title: 'A/C and heating repair', text: 'If the A/C blows warm or the heat won’t come up, we find out why and fix it.' },
+    { title: 'Tire rotation, balancing and replacement', text: 'Rotation evens out tread wear, balancing smooths out a shake, and we replace worn tires.' },
+    { title: 'Oil changes and fluid checks', text: 'We change the oil and check your coolant, brake fluid and other fluids.' },
+    { title: 'Suspension and steering repair', text: 'We track down clunks, a bouncy ride or loose steering and replace worn parts.' },
   ] satisfies TitleText[],
   callCard: {
     title: 'Not sure what it needs?',
-    text: 'Tell us what you are seeing or hearing and we will take a look.',
+    text: 'That’s our job. Call and tell us what it’s doing, and we’ll take it from there.',
   },
 };
 
 export const signs = {
-  title: 'Signs your vehicle needs service',
-  text: 'Catching wear or damage early saves you time and money. If you notice any of these, bring it by.',
+  title: 'Signs your car needs a mechanic',
+  text: 'A small problem caught early is usually a smaller repair. If you notice any of these, call us and describe it.',
   rows: [
-    { title: 'Strange noises', text: 'Grinding, squealing or knocking can point to the brakes, engine or suspension.' },
-    { title: 'Warning lights', text: 'A dashboard light can mean anything from a simple sensor error to a serious mechanical issue.' },
-    { title: 'Vibrations or pulling', text: 'If the vehicle vibrates or pulls to one side, it may need alignment, balancing or brake service.' },
-    { title: 'Poor fuel economy', text: 'A drop in fuel efficiency can be a sign of engine or exhaust system issues.' },
-    { title: 'Unresponsive brakes', text: 'If the pedal feels spongy or slow to respond, it is time for a brake check.' },
+    { title: 'Grinding, squealing or clunking', text: 'Often worn brakes or suspension parts. Tell us when you hear it and we’ll know where to start.' },
+    { title: 'Check engine light is on', text: 'It can mean anything from a loose gas cap to a serious fault. If it’s flashing, call us right away.' },
+    { title: 'Shaking or pulling to one side', text: 'Shaking at speed is often wheel balance. Pulling can be tires, brakes or steering. Call and we’ll find out which.' },
+    { title: 'Filling up more often', text: 'A sudden drop in gas mileage can point to the engine or exhaust. Call and tell us what changed.' },
+    { title: 'Soft or spongy brake pedal', text: 'This can mean low fluid, air in the lines or worn pads. Brakes shouldn’t wait, so call us.' },
   ] satisfies TitleText[],
 };
 
 export const expect = {
   title: 'What to expect',
   reasons: [
-    { title: 'Fixed right the first time', text: 'Accurate diagnosis, quality parts and advanced equipment, so you are not back with the same problem weeks later.' },
-    { title: 'We explain the work', text: 'We listen to your concerns and walk you through the repair, so you know exactly what is happening with your vehicle.' },
-    { title: 'Upfront pricing, no surprises', text: 'Clear pricing before we start, and we charge only for repairs that are truly necessary.' },
+    { title: 'Family-owned and local', text: 'We’re a family-owned Willow Springs shop with over 16 years in business, and our team has 65+ years of combined experience.' },
+    { title: 'We explain the work', text: 'Tell us what you’re seeing or hearing. We’ll walk you through what we found and what the repair involves, in plain terms.' },
+    { title: 'Clear pricing before we start', text: 'You get a clear price before any work starts, and we charge only for repairs your vehicle needs.' },
   ] satisfies TitleText[],
 };
 
 export const cta: Cta = {
   title: 'Ready to bring it in?',
-  text: 'Call the shop, or send a request and we will call you back to set a time.',
+  text: 'Call and describe what it’s doing, or send a request. We’ll set a time to look at it.',
 };

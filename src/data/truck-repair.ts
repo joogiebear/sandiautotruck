@@ -1,44 +1,44 @@
 import type { Cta, Seo, TitleText } from './types';
 
 export const seo: Seo = {
-  title: 'Medium and Heavy-Duty Truck Repair, Willow Springs, IL | Sandi Auto & Truck',
+  title: 'Heavy-Duty Truck Repair, Willow Springs | Sandi Auto & Truck',
   description:
-    'Medium and heavy-duty truck repair in Willow Springs, IL, serving Chicago-area fleets and owner-operators. Engine, clutch and transmission, brakes, suspension, exhaust and electrical, under one roof.',
+    'Medium and heavy-duty truck repair in Willow Springs, IL, for fleets and owner-operators. Diesel engine, clutch, brake and electrical work in one shop.',
 };
 
 export const hero = {
   crumb: 'Truck Repair',
-  title: 'Medium and heavy-duty truck repair',
-  lead: 'Commercial trucks, fleet vehicles and owner-operator rigs, all handled under one roof so your truck is not bouncing between shops.',
+  title: 'Heavy-duty truck repair in Willow Springs',
+  lead: 'We repair medium and heavy-duty trucks for fleets and owner-operators in Willow Springs, IL. The work is all done in-house, so your truck isn’t bouncing between shops.',
   facts: ['Volvo, Freightliner, Kenworth and more', 'Fleets and single trucks'],
 };
 
 export const services = {
   title: 'Truck services',
-  intro: 'Everything your truck needs in one location, from diagnostics to final repairs.',
+  intro: 'Diagnosis through repair, done in our own shop. Not sure what it needs? Tell us what it’s doing.',
   items: [
-    { title: 'Engine diagnostics and repair', text: 'Accurate diagnostics and thorough engine repairs for the best performance.' },
-    { title: 'Clutch and transmission service', text: 'Keeps your truck’s transmission in top shape for smooth operation.' },
-    { title: 'Brake systems repair', text: 'Regular brake inspections, repairs and replacements to keep you safe.' },
-    { title: 'Suspension and steering maintenance', text: 'Suspension and steering repairs that improve handling and stability.' },
-    { title: 'Exhaust system and emissions testing', text: 'Exhaust repairs and testing that cut emissions and improve efficiency.' },
-    { title: 'Cooling system maintenance', text: 'Regular checks and repairs that prevent overheating and prolong engine life.' },
-    { title: 'Electrical system diagnostics', text: 'Advanced diagnostic tools for complex electrical issues.' },
+    { title: 'Engine diagnostics and repair', text: 'We track down the cause of power loss, warning lights and hard starts, then fix it.' },
+    { title: 'Clutch and transmission service', text: 'We service and repair clutches and transmissions that slip, grind or shift hard.' },
+    { title: 'Brake systems repair', text: 'We inspect and repair brake systems so a loaded truck stops the way it should.' },
+    { title: 'Suspension and steering maintenance', text: 'We replace worn suspension and steering parts that cause wander or uneven tire wear.' },
+    { title: 'Exhaust system and emissions testing', text: 'We repair exhaust leaks and damaged components, and we do emissions testing.' },
+    { title: 'Cooling system maintenance', text: 'We check coolant, hoses and the radiator, and fix leaks before the engine overheats.' },
+    { title: 'Electrical system diagnostics', text: 'We trace charging, starting, lighting and wiring faults to the source.' },
   ] satisfies TitleText[],
   callCard: {
     title: 'Truck down right now?',
-    text: 'Call the shop and tell us what is going on.',
+    text: 'Call while we’re open and tell us what’s going on.',
   },
 };
 
 export const oneShop = {
   title: 'One shop, start to finish',
-  text: 'Instead of sending your truck to several repair shops, bring it to us. We manage every step, without multiple appointments or locations.',
+  text: 'A truck that goes to three shops is down three times. We do the diagnosis, the repair and the filter cleaning in our own building, so it makes one stop.',
   rows: [
-    { title: 'Makes we know', text: 'Volvo, Freightliner, Kenworth and more.' },
-    { title: 'Who we work with', text: 'Commercial trucks, fleet vehicles and independent drivers.' },
-    { title: 'Where we are', text: 'Willow Springs, serving Chicago and the surrounding areas.' },
-    { title: 'Diesel filters too', text: 'DPF and DOC cleaning on our own OTC cleaning system.' },
+    { title: 'Makes we know', text: 'Volvo, Freightliner, Kenworth and more. Just ask.' },
+    { title: 'Who we work with', text: 'Fleets, owner-operators and businesses running one truck or many.' },
+    { title: 'Where we are', text: 'Willow Springs, in the southwest suburbs, close to Justice, Hickory Hills, Burr Ridge, Countryside, Hodgkins and Palos Hills.' },
+    { title: 'Diesel filters too', text: 'DPF and DOC cleaning in our shop, on our own OTC cleaning system.' },
   ] satisfies TitleText[],
   link: { label: 'How filter cleaning works', href: '/dpf-cleaning/' },
 };
@@ -46,14 +46,14 @@ export const oneShop = {
 export const why = {
   title: 'Why truck owners choose us',
   reasons: [
-    { title: 'Specialized experience', text: 'Years of work on medium and heavy-duty trucks, with close attention to detail on every job.' },
-    { title: 'All-in-one service', text: 'Diagnostics through final repairs in one place, with the tools for complex jobs.' },
-    { title: 'Back on the road fast', text: 'Your truck is essential to your business, so we prioritize efficiency and repairs that last.' },
-    { title: 'Fair, transparent pricing', text: 'We are clear about the work and the cost before we start.' },
+    { title: 'An experienced team', text: 'We’re a family-owned shop that has served the area for over 16 years. Our team has 65+ years of combined experience.' },
+    { title: 'All done in-house', text: 'Diagnosis, repair and filter cleaning all happen in our own building, so there’s one shop to call.' },
+    { title: 'Downtime comes first', text: 'A parked truck earns nothing. With every job done in one building, we work to keep your downtime short.' },
+    { title: 'Clear pricing up front', text: 'We price the job before we start and charge only for repairs you need.' },
   ] satisfies TitleText[],
 };
 
 export const cta: Cta = {
   title: 'Need your truck back on the road?',
-  text: 'Call the shop, or send a request and we will call you back to set a time.',
+  text: 'Call during shop hours and tell us what it’s doing, or send a request to set a time.',
 };
