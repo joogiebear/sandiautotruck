@@ -1,0 +1,122 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Reasons from '../components/Reasons.astro';
+import Reviews from '../components/Reviews.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site } from '../data/site';
+import { seo, hero, stats, mission, why, reviewsTitle, visit } from '../data/about';
+---
+
+<Base title={seo.title} description={seo.description}>
+  <Hero crumb={hero.crumb} title={hero.title} lead={hero.lead} buttons={false} />
+
+  <section class="stats on-navy" aria-label="The shop in numbers">
+    <dl class="wrap">
+      {
+        stats.map((stat) => (
+          <div>
+            <dt>{stat.label}</dt>
+            <dd>{stat.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section class="section">
+    <div class="wrap mission">
+      <div class="statement">
+        <p class="eyebrow">{mission.eyebrow}</p>
+        <h2 class="h2">{mission.title}</h2>
+      </div>
+      <div class="story">
+        {mission.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section why">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h2">{why.title}</h2>
+      </div>
+      <Reasons reasons={why.reasons} minWidth={190} />
+    </div>
+  </section>
+
+  <Reviews title={reviewsTitle} />
+
+  <CtaBand
+    title={visit.title}
+    text={`${site.address.street}, ${site.address.city}. Open ${site.hours.days}, ${site.hours.time}.`}
+    secondary="directions"
+    tint={false}
+  />
+</Base>
+
+<style>
+  .stats {
+    background: var(--navy);
+    padding-block: clamp(36px, 5vw, 56px);
+  }
+
+  .stats dl {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: 28px 48px;
+  }
+
+  .stats div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 4px;
+  }
+
+  .stats dd {
+    color: var(--white);
+    font-family: var(--font-head);
+    font-size: clamp(2.25rem, 1.8rem + 1.8vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  .stats dt {
+    color: var(--on-navy);
+    font-size: 1.0625rem;
+  }
+
+  .mission {
+    display: grid;
+    gap: 32px 80px;
+    align-items: start;
+  }
+
+  .statement {
+    display: grid;
+    gap: 16px;
+  }
+
+  .eyebrow {
+    color: var(--red);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .story {
+    display: grid;
+    gap: 20px;
+    font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  }
+
+  .why {
+    padding-top: 0;
+  }
+
+  @media (min-width: 900px) {
+    .mission {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    }
+  }
+</style>

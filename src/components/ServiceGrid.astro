@@ -1,0 +1,78 @@
+---
+/** Grid of services on an inner page, ending with a navy "call us" card. */
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+import type { TitleText } from '../data/types';
+
+interface Props {
+  items: TitleText[];
+  callCard: TitleText;
+}
+
+const { items, callCard } = Astro.props;
+---
+
+<ul class="grid">
+  {
+    items.map((item) => (
+      <li class="card">
+        <h3>{item.title}</h3>
+        <p>{item.text}</p>
+      </li>
+    ))
+  }
+  <li class="card call on-navy">
+    <h3>{callCard.title}</h3>
+    <p>{callCard.text}</p>
+    <a href={site.phone.href}>
+      <Icon name="phone" />
+      <span>{site.phone.display}</span>
+    </a>
+  </li>
+</ul>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+    gap: clamp(12px, 2vw, 20px);
+    list-style: none;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: clamp(20px, 2.4vw, 26px);
+  }
+
+  h3 {
+    font-size: 1.3125rem;
+    font-weight: 700;
+    line-height: 1.22;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .call {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--on-navy);
+  }
+
+  .call h3 {
+    color: var(--white);
+  }
+
+  .call a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    margin-top: auto;
+    color: var(--white);
+    font-weight: 700;
+  }
+</style>

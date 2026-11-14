@@ -1,0 +1,68 @@
+---
+/** Address, hours, phone and email as a ruled list. */
+import { site } from '../data/site';
+---
+
+<dl>
+  <div>
+    <dt>Address</dt>
+    <dd>
+      {site.address.street}<br />
+      {site.address.cityLine}
+    </dd>
+  </div>
+  <div>
+    <dt>Hours</dt>
+    <dd>
+      {site.hours.days}, {site.hours.time}
+      {
+        site.hours.weekend && (
+          <>
+            <br />
+            <span class="muted">{site.hours.weekend}</span>
+          </>
+        )
+      }
+    </dd>
+  </div>
+  <div>
+    <dt>Phone</dt>
+    <dd>
+      <a class="strong" href={site.phone.href}>{site.phone.display}</a>
+      <span class="muted"> · <span class="nowrap">Fax {site.fax.display}</span></span>
+    </dd>
+  </div>
+  <div>
+    <dt>Email</dt>
+    <dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
+  </div>
+</dl>
+
+<style>
+  dl > div {
+    display: flex;
+    gap: 8px 24px;
+    padding-block: 14px;
+    border-top: 1px solid var(--line);
+  }
+
+  dl > div:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  dt {
+    flex: none;
+    width: 5.25rem;
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  dd {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .strong {
+    font-weight: 700;
+  }
+</style>

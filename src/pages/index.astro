@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ShopCard from '../components/ShopCard.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import DarkList from '../components/DarkList.astro';
+import Reasons from '../components/Reasons.astro';
+import Reviews from '../components/Reviews.astro';
+import VisitInfo from '../components/VisitInfo.astro';
+import MapEmbed from '../components/MapEmbed.astro';
+import AppointmentForm from '../components/AppointmentForm.astro';
+import { site } from '../data/site';
+import { seo, hero, services, signs, why, reviewsTitle, visit } from '../data/home';
+---
+
+<Base title={seo.title} description={seo.description}>
+  <Hero title={hero.title} lead={hero.lead} facts={hero.facts}>
+    <span slot="eyebrow" class="pill">{site.hours.summary}</span>
+    <ShopCard slot="aside" />
+  </Hero>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h2">{services.title}</h2>
+        <p class="lead">{services.intro}</p>
+      </div>
+      <ServiceCards cards={services.cards} />
+    </div>
+  </section>
+
+  <DarkList title={signs.title} text={signs.text} rows={signs.rows} />
+
+  <section class="section" id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h2">{why.title}</h2>
+      </div>
+      <Reasons reasons={why.reasons} />
+    </div>
+  </section>
+
+  <Reviews title={reviewsTitle} />
+
+  <section class="section" id="visit">
+    <div class="wrap visit">
+      <div class="info">
+        <h2 class="h2">{visit.title}</h2>
+        <VisitInfo />
+        <MapEmbed height={280} />
+      </div>
+      <AppointmentForm headingLevel="h3" />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .visit {
+    display: grid;
+    gap: 40px 64px;
+    align-items: start;
+  }
+
+  .info {
+    display: grid;
+    gap: 28px;
+    min-width: 0;
+  }
+
+  @media (min-width: 960px) {
+    .visit {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    }
+  }
+</style>

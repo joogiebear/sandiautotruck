@@ -1,0 +1,44 @@
+---
+/** Google map of the shop, loaded only when it scrolls into view. */
+import { site } from '../data/site';
+
+interface Props {
+  height?: number;
+}
+
+const { height = 360 } = Astro.props;
+---
+
+<div class="map" style={`--h: ${height}px`}>
+  <iframe
+    title={`Map showing ${site.name} at ${site.address.oneLine}`}
+    src={site.mapEmbedUrl}
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen></iframe>
+  <a class="btn btn--primary btn--small" href={site.directionsUrl} target="_blank" rel="noopener">Get directions</a>
+</div>
+
+<style>
+  .map {
+    position: relative;
+    height: min(var(--h), 70vh);
+    overflow: hidden;
+    background: var(--icon-tint);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .btn {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    box-shadow: 0 6px 18px rgba(18, 40, 76, 0.25);
+  }
+</style>

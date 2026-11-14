@@ -1,0 +1,43 @@
+---
+/** Closing band: one line of encouragement and the two main buttons. */
+import Buttons from './Buttons.astro';
+
+interface Props {
+  title: string;
+  text: string;
+  secondary?: 'request' | 'directions';
+  tint?: boolean;
+}
+
+const { title, text, secondary = 'request', tint = true } = Astro.props;
+---
+
+<section class:list={['cta', { 'section--tint': tint }]}>
+  <div class="wrap row">
+    <div class="copy">
+      <h2 class="h2">{title}</h2>
+      <p class="lead">{text}</p>
+    </div>
+    <Buttons secondary={secondary} />
+  </div>
+</section>
+
+<style>
+  .cta {
+    padding-block: clamp(48px, 6vw, 72px);
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px 64px;
+  }
+
+  .copy {
+    flex: 1 1 28rem;
+    display: grid;
+    gap: 10px;
+  }
+</style>

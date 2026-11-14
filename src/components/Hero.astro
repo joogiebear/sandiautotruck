@@ -1,0 +1,133 @@
+---
+/**
+ * Page opener. Pass a photo or card through the "aside" slot to show it
+ * beside the text on wide screens.
+ */
+import Buttons from './Buttons.astro';
+import Icon from './Icon.astro';
+
+interface Props {
+  title: string;
+  lead: string;
+  crumb?: string;
+  facts?: string[];
+  buttons?: 'request' | 'directions' | 'none' | false;
+}
+
+const { title, lead, crumb, facts = [], buttons = 'request' } = Astro.props;
+const hasAside = Astro.slots.has('aside');
+---
+
+<section class:list={['hero', { 'hero--inner': crumb }]}>
+  <div class:list={['wrap', 'hero-grid', { 'has-aside': hasAside }]}>
+    <div class="copy">
+      {
+        crumb && (
+          <nav class="crumb" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">{crumb}</span>
+          </nav>
+        )
+      }
+      <slot name="eyebrow" />
+      <h1 class="h1">{title}</h1>
+      <p class="lead">{lead}</p>
+      {buttons && <Buttons secondary={buttons} />}
+      {
+        facts.length > 0 && (
+          <ul class="checks">
+            {facts.map((fact) => (
+              <li>
+                <Icon name="check" />
+                <span>{fact}</span>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+    {
+      hasAside && (
+        <div class="aside">
+          <slot name="aside" />
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: var(--tint);
+    padding-block: clamp(36px, 6vw, 80px);
+  }
+
+  .hero--inner {
+    padding-block: clamp(12px, 3vw, 36px) clamp(40px, 6vw, 72px);
+  }
+
+  .hero-grid {
+    display: grid;
+    gap: 40px 64px;
+    align-items: center;
+  }
+
+  .copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    min-width: 0;
+  }
+
+  .copy .lead {
+    max-width: 39rem;
+  }
+
+  .copy :global(.btn-row) {
+    align-self: stretch;
+  }
+
+  .hero:not(.hero--inner) .copy {
+    gap: 24px;
+  }
+
+  .hero-grid:not(.has-aside) .h1 {
+    max-width: 20ch;
+  }
+
+  .crumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--muted);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .crumb a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--muted);
+  }
+
+  .crumb a:hover {
+    color: var(--red);
+  }
+
+  .crumb [aria-current] {
+    color: var(--navy);
+  }
+
+  .aside {
+    min-width: 0;
+  }
+
+  @media (min-width: 960px) {
+    .hero-grid.has-aside {
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    }
+  }
+</style>

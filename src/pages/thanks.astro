@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import Buttons from '../components/Buttons.astro';
+import { thanks } from '../data/contact';
+---
+
+<Base title="Request sent | Sandi Auto & Truck Repair" description={thanks.text} noindex>
+  <section class="section section--tint">
+    <div class="wrap message">
+      <h1 class="h1">{thanks.title}</h1>
+      <p class="lead">{thanks.text}</p>
+      <Buttons secondary="directions" />
+      <a class="arrow-link" href="/">Back to the homepage</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .message {
+    display: grid;
+    justify-items: start;
+    align-content: center;
+    gap: 20px;
+    min-height: 40vh;
+  }
+
+  .message :global(.btn-row) {
+    justify-self: stretch;
+  }
+</style>

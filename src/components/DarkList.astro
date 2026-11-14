@@ -1,0 +1,98 @@
+---
+/** Navy band: a heading and short pitch on one side, a ruled list on the other. */
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+import type { TitleText } from '../data/types';
+
+interface Props {
+  title: string;
+  text: string;
+  rows: TitleText[];
+  /** Replaces the call button with a link to another page. */
+  link?: { label: string; href: string };
+}
+
+const { title, text, rows, link } = Astro.props;
+---
+
+<section class="section section--navy on-navy">
+  <div class="wrap split">
+    <div class="pitch">
+      <h2 class="h2">{title}</h2>
+      <p class="lead">{text}</p>
+      {
+        link ? (
+          <a class="btn btn--light" href={link.href}>
+            <span>{link.label}</span>
+            <Icon name="arrow" />
+          </a>
+        ) : (
+          <a class="btn btn--light" href={site.phone.href}>
+            Call {site.phone.display}
+          </a>
+        )
+      }
+    </div>
+    <ul>
+      {
+        rows.map((row) => (
+          <li>
+            <strong>{row.title}</strong>
+            <span>{row.text}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .split {
+    display: grid;
+    gap: 40px 80px;
+    align-items: start;
+  }
+
+  .pitch {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: grid;
+    gap: 2px;
+    padding-block: 18px;
+    border-top: 1px solid var(--navy-line);
+    color: var(--on-navy);
+  }
+
+  li:last-child {
+    border-bottom: 1px solid var(--navy-line);
+  }
+
+  strong {
+    color: var(--white);
+    font-family: var(--font-head);
+    font-size: clamp(1.25rem, 1.15rem + 0.4vw, 1.375rem);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  @media (max-width: 519px) {
+    .pitch .btn {
+      align-self: stretch;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .split {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    }
+  }
+</style>

@@ -1,0 +1,102 @@
+---
+/** The shop's address, hours and phone in one card. Sits beside the homepage hero. */
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+---
+
+<aside class="shop on-navy" aria-label="Shop details">
+  <p class="label">Visit the shop</p>
+  <a class="number" href={site.phone.href}>{site.phone.display}</a>
+  <ul>
+    <li>
+      <Icon name="pin" size={22} />
+      <span>
+        {site.address.street}<br />
+        {site.address.cityLine}
+      </span>
+    </li>
+    <li>
+      <Icon name="clock" size={22} />
+      <span>
+        {site.hours.days}<br />
+        {site.hours.time}
+        {
+          site.hours.weekend && (
+            <>
+              <br />
+              {site.hours.weekend}
+            </>
+          )
+        }
+      </span>
+    </li>
+  </ul>
+  <a class="btn btn--light" href={site.directionsUrl} target="_blank" rel="noopener">Get directions</a>
+</aside>
+
+<style>
+  .shop {
+    display: grid;
+    gap: 22px;
+    padding: clamp(28px, 4vw, 44px);
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    color: var(--on-navy);
+  }
+
+  .label {
+    color: var(--on-navy);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .number {
+    margin-top: -10px;
+    color: var(--white);
+    font-family: var(--font-head);
+    font-size: clamp(2rem, 1.4rem + 2vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    text-decoration: none;
+  }
+
+  .number:hover {
+    color: var(--white);
+    text-decoration: underline;
+  }
+
+  ul {
+    display: grid;
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    gap: 14px;
+    padding-block: 16px;
+    border-top: 1px solid var(--navy-line);
+  }
+
+  li:last-child {
+    border-bottom: 1px solid var(--navy-line);
+  }
+
+  li :global(svg) {
+    flex: none;
+    margin-top: 2px;
+    color: var(--white);
+  }
+
+  .btn {
+    justify-self: start;
+  }
+
+  @media (max-width: 519px) {
+    .btn {
+      justify-self: stretch;
+    }
+  }
+</style>

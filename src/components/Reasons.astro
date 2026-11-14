@@ -1,0 +1,44 @@
+---
+/** A row of short reasons, each under a red rule. */
+import type { TitleText } from '../data/types';
+
+interface Props {
+  reasons: TitleText[];
+  /** Narrowest a column may get before the row wraps, in pixels. */
+  minWidth?: number;
+}
+
+const { reasons, minWidth = 230 } = Astro.props;
+---
+
+<ul style={`--min: ${minWidth}px`}>
+  {
+    reasons.map((reason) => (
+      <li>
+        <h3 class="h3">{reason.title}</h3>
+        <p>{reason.text}</p>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
+    gap: 28px 32px;
+    list-style: none;
+  }
+
+  li {
+    display: grid;
+    align-content: start;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 3px solid var(--red);
+  }
+
+  p {
+    font-size: 1.0625rem;
+  }
+</style>

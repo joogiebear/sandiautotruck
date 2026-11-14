@@ -1,0 +1,136 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo-white.png';
+import { site } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer on-navy">
+  <div class="wrap grid">
+    <div class="brand">
+      <Image src={logo} alt={site.name} width={156} densities={[1, 2]} />
+      <p>Family-owned auto and truck repair in {site.address.city}, {site.address.state}.</p>
+    </div>
+
+    <div>
+      <h2>Visit</h2>
+      <p>
+        {site.address.street}<br />
+        {site.address.cityLine}
+      </p>
+      <p><a href={site.directionsUrl} target="_blank" rel="noopener">Get directions</a></p>
+    </div>
+
+    <div>
+      <h2>Hours</h2>
+      <p>
+        {site.hours.days}<br />
+        {site.hours.time}
+      </p>
+      {site.hours.weekend && <p>{site.hours.weekend}</p>}
+    </div>
+
+    <div>
+      <h2>Contact</h2>
+      <p><a class="strong" href={site.phone.href}>{site.phone.display}</a></p>
+      <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+    </div>
+
+    <nav aria-label="Footer">
+      <h2>Pages</h2>
+      <ul>
+        {
+          site.nav.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+
+  <div class="wrap">
+    <p class="legal">© {year} {site.name}. Family-owned.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--navy);
+    color: var(--on-navy);
+    font-size: 1rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 32px 40px;
+    padding-block: 56px 40px;
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+    display: grid;
+    align-content: start;
+    gap: 14px;
+    max-width: 22rem;
+  }
+
+  .brand img {
+    width: auto;
+    height: 48px;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  p + p {
+    margin-top: 6px;
+  }
+
+  ul {
+    display: grid;
+    gap: 2px;
+    list-style: none;
+  }
+
+  a {
+    display: inline-block;
+    padding-block: 4px;
+    color: var(--on-navy);
+  }
+
+  a:hover {
+    color: var(--white);
+  }
+
+  a.strong {
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  .legal {
+    padding-block: 20px 28px;
+    border-top: 1px solid var(--navy-line);
+    font-size: 0.9375rem;
+  }
+
+  @media (min-width: 1000px) {
+    .grid {
+      grid-template-columns: 1.5fr repeat(4, 1fr);
+    }
+
+    .brand {
+      grid-column: auto;
+    }
+  }
+</style>

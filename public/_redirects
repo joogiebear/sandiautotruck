@@ -1,0 +1,16 @@
+# Old WordPress addresses, sent to their new homes so search rankings carry over.
+/diesel-filters                                 /dpf-cleaning/   301
+/diesel-filters/                                /dpf-cleaning/   301
+/services/brake-repair                          /auto-repair/    301
+/services/brake-repair/                         /auto-repair/    301
+/services/clutch-and-transmission-repair        /truck-repair/   301
+/services/clutch-and-transmission-repair/       /truck-repair/   301
+/services/diesel-oxidation-catalyst-cleaning    /dpf-cleaning/   301
+/services/diesel-oxidation-catalyst-cleaning/   /dpf-cleaning/   301
+/services                                       /                301
+/services/                                      /                301
+
+# Old sitemap addresses.
+/sitemap.xml         /sitemap-index.xml   301
+/sitemap_index.xml   /sitemap-index.xml   301
+/page-sitemap.xml    /sitemap-index.xml   301

@@ -1,0 +1,92 @@
+---
+/** The three big service cards on the homepage. */
+import Icon from './Icon.astro';
+
+interface Card {
+  icon: string;
+  title: string;
+  text: string;
+  items: string[];
+  link: { label: string; href: string };
+}
+
+interface Props {
+  cards: Card[];
+}
+
+const { cards } = Astro.props;
+---
+
+<div class="cards">
+  {
+    cards.map((card) => (
+      <article class="card">
+        <span class="badge">
+          <Icon name={card.icon as any} size={28} />
+        </span>
+        <h3 class="h3">{card.title}</h3>
+        <p class="text">{card.text}</p>
+        <ul class="checks checks--stacked">
+          {card.items.map((item) => (
+            <li>
+              <Icon name="check" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <a class="arrow-link" href={card.link.href}>
+          <span>{card.link.label}</span>
+          <Icon name="arrow" />
+        </a>
+      </article>
+    ))
+  }
+</div>
+
+<style>
+  .cards {
+    display: grid;
+    gap: 24px;
+  }
+
+  .card {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 5;
+    gap: 18px;
+    padding: clamp(24px, 3vw, 36px);
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: var(--icon-tint);
+    border-radius: 16px;
+    color: var(--navy);
+  }
+
+  .h3 {
+    font-size: clamp(1.4375rem, 1.3rem + 0.6vw, 1.75rem);
+  }
+
+  .text {
+    font-size: 1.0625rem;
+  }
+
+  .checks {
+    font-size: 1.0625rem;
+  }
+
+  .arrow-link {
+    align-self: end;
+  }
+
+  @media (min-width: 900px) {
+    .cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>
