@@ -1,30 +1,30 @@
 import type { Seo, TitleText } from './types';
 
 export const seo: Seo = {
-  title: 'Auto and Truck Repair in Willow Springs, IL | Sandi Auto & Truck',
+  title: 'Auto & Truck Repair, Willow Springs, IL | Sandi Auto & Truck',
   description:
-    'Family-owned auto and truck repair in Willow Springs, IL. Cars, SUVs, medium and heavy-duty trucks, and DPF and DOC filter cleaning. Most repairs done the same day.',
+    'Family-owned auto and truck repair in Willow Springs, IL. We fix cars, SUVs and heavy-duty trucks and clean DPFs. Most repairs are done the same day.',
 };
 
 export const hero = {
-  title: 'Honest repairs, usually done the same day.',
-  lead: 'Sandi Auto & Truck is a family-owned shop in Willow Springs. We have kept Chicagoland’s cars, SUVs and work trucks on the road for over 16 years, with fast, reliable and affordable repairs.',
-  facts: ['Family-owned', '65+ years of combined experience', 'Foreign and domestic'],
+  title: 'Auto and truck repair in Willow Springs, usually same day.',
+  lead: 'Sandi Auto & Truck is a family-owned repair shop in Willow Springs, IL. We fix cars, SUVs and medium and heavy-duty trucks, and we clean diesel filters in-house. Call and tell us what your vehicle is doing.',
+  facts: ['Over 16 years in business', '65+ years of combined experience', 'Foreign and domestic'],
 };
 
 export const services = {
   title: 'What can we help with?',
   intro:
-    'From oil changes to complete engine replacements, on compact cars, family SUVs, and light, medium and heavy-duty trucks.',
+    'From oil changes to engine replacements, for drivers in Willow Springs and nearby Justice, Hickory Hills, Burr Ridge, Countryside, Hodgkins and Palos Hills.',
   cards: [
     {
       icon: 'car',
-      title: 'Cars and SUVs',
-      text: 'Daily commuters, family SUVs and light-duty trucks, all makes and models. Repairs that are meant to last.',
+      title: 'Cars, SUVs and light trucks',
+      text: 'Daily drivers, family SUVs and light-duty trucks, all makes and models. Start here for a check engine light or grinding brakes.',
       items: [
         'Oil changes and fluid checks',
         'Brake service and replacement',
-        'Engine diagnostics and repair',
+        'Check engine light and engine repair',
         'A/C and heating repair',
         'Tires, suspension and steering',
       ],
@@ -33,7 +33,7 @@ export const services = {
     {
       icon: 'truck',
       title: 'Medium and heavy-duty trucks',
-      text: 'Drop the truck off and we handle the rest, all under one roof. Volvo, Freightliner, Kenworth and more.',
+      text: 'We work on commercial trucks for fleets and owner-operators: Volvo, Freightliner, Kenworth and more, all in our own shop.',
       items: [
         'Engine diagnostics and repair',
         'Clutch and transmission service',
@@ -45,8 +45,8 @@ export const services = {
     },
     {
       icon: 'filter',
-      title: 'Diesel filter cleaning (DPF and DOC)',
-      text: 'Seeing “DPF full” or “load limit reached”? Cleaning the filter costs far less than replacing it.',
+      title: 'DPF and DOC filter cleaning',
+      text: '“DPF full” on the dash, or a truck in derate? We clean the filter in our own shop, and it costs far less than a new one.',
       items: [
         'Diesel particulate filters (DPF)',
         'Diesel oxidation catalysts (DOC)',
@@ -61,23 +61,23 @@ export const services = {
 
 export const signs = {
   title: 'Is your car trying to tell you something?',
-  text: 'Most vehicles give you warning signs before a small problem becomes an expensive one. If you notice any of these, bring it by and we will take a look.',
+  text: 'Most problems give a warning before they get expensive. If you notice any of these, call us and describe it. We’ll take a look before it grows.',
   rows: [
-    { title: 'Strange noises', text: 'Grinding, squealing or knocking from the brakes, engine or suspension.' },
-    { title: 'Warning lights', text: 'A light on the dashboard that will not go away.' },
-    { title: 'Vibrations or pulling', text: 'Usually a sign you need alignment, balancing or brake service.' },
-    { title: 'Poor fuel economy', text: 'Can point to a problem with the engine or exhaust.' },
-    { title: 'Unresponsive brakes', text: 'A spongy pedal, or brakes that are slow to respond.' },
+    { title: 'A new noise', text: 'Grinding or squealing when you brake, or a knock from the engine or suspension.' },
+    { title: 'A warning light', text: 'A check engine light or other light that won’t go away.' },
+    { title: 'Shaking or pulling', text: 'Often points to the tires, brakes, suspension or steering.' },
+    { title: 'Worse gas mileage', text: 'More fill-ups can point to an engine or exhaust problem.' },
+    { title: 'A soft brake pedal', text: 'A spongy pedal or slow brakes. Don’t wait on this one.' },
   ] satisfies TitleText[],
 };
 
 export const why = {
   title: 'Why people keep coming back',
   reasons: [
-    { title: 'Same day on most jobs', text: 'Most repairs and maintenance services are completed the same day.' },
-    { title: 'Upfront pricing, no surprises', text: 'Clear pricing before we start, and we only charge for the repairs you need.' },
-    { title: 'Everything done in-house', text: 'Every service is completed in our own shop, with your downtime and budget in mind.' },
-    { title: 'We explain the work', text: 'Our team walks you through the process, so you know what we are doing and why.' },
+    { title: 'Same day on most jobs', text: 'Most repairs and maintenance are done the same day, so you’re back on the road sooner.' },
+    { title: 'Clear pricing before we start', text: 'You get the price before any work begins, and we only charge for repairs your vehicle needs.' },
+    { title: 'All work done in-house', text: 'Every job is done in our own building in Willow Springs, so your vehicle stays in one place.' },
+    { title: 'We explain the work', text: 'We tell you what we found, what we’re fixing and why, in plain language.' },
   ] satisfies TitleText[],
 };
 

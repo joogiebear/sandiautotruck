@@ -1,17 +1,17 @@
 import type { Cta, Seo, TitleText } from './types';
 
 export const seo: Seo = {
-  title: 'DPF and DOC Filter Cleaning near Chicago | Sandi Auto & Truck',
+  title: 'DPF & DOC Cleaning, Willow Springs, IL | Sandi Auto & Truck',
   description:
-    'DPF and DOC filter cleaning in Willow Springs, IL, for Chicago-area trucks and fleets. Inspected, cleaned on our OTC system, tested and reinstalled. Far cheaper than a new filter.',
+    'DPF and DOC cleaning in Willow Springs, IL, for trucks and fleets from the southwest suburbs and the Chicago area. Done in our own shop. Call for a quote.',
 };
 
 export const hero = {
   crumb: 'DPF & DOC Cleaning',
-  title: 'DPF and DOC filter cleaning',
-  lead: 'Seeing “DPF full” or “load limit reached” on the dash? A clogged filter burns more fuel, costs you power and leads to expensive repairs. Cleaning it costs far less than replacing it.',
+  title: 'DPF and DOC cleaning in Willow Springs, IL',
+  lead: '“DPF full” on the dash, regens that keep coming back or a truck in derate can all point to a clogged filter. We clean DPFs and DOCs in our own shop for trucks and fleets across the southwest suburbs. Cleaning costs far less than replacing.',
   facts: ['Cleaned in our own shop', 'Single trucks and whole fleets'],
-  photoAlt: 'The OTC diesel particulate filter cleaning system in the shop',
+  photoAlt: 'The OTC diesel particulate filter cleaning system in our shop',
   photoCaption: 'Our OTC Diesel Particulate Filter Cleaning System',
 };
 
@@ -22,30 +22,30 @@ export const hero = {
 export const facts = {
   turnaround: '',
   startingPrice: '',
-  dropOffLabel: 'Drop-off',
-  pricingFallbackLabel: 'Pricing and turnaround',
+  dropOffLabel: 'Shop hours',
+  pricingFallbackLabel: 'Price and turnaround',
   pricingFallback: 'Call for a quote',
 };
 
 export const process = {
-  title: 'How filter cleaning works',
-  intro: 'Four steps, all done in our shop.',
+  title: 'How DPF and DOC cleaning works',
+  intro: 'Four steps, all in our Willow Springs shop.',
   steps: [
-    { title: 'Detailed inspection', text: 'We check the filter’s condition to choose the best cleaning approach.' },
-    { title: 'Cleaning', text: 'We remove the built-up soot, ash and contaminants on our OTC cleaning system.' },
-    { title: 'Performance testing', text: 'After cleaning, we test the filter to confirm it is working at full efficiency.' },
-    { title: 'Reinstallation', text: 'We reinstall the filter and run a final check on the vehicle.' },
+    { title: 'Inspection', text: 'We check the filter’s condition first, so we know what we’re working with.' },
+    { title: 'Cleaning', text: 'Our OTC cleaning system removes the built-up soot, ash and contaminants.' },
+    { title: 'Performance testing', text: 'We test the cleaned filter to confirm it’s working the way it should.' },
+    { title: 'Reinstallation', text: 'We reinstall the filter and run a final check before the truck leaves.' },
   ] satisfies TitleText[],
 };
 
 export const why = {
   title: 'Why clean instead of replace?',
-  text: 'A clogged DPF or DOC raises fuel consumption and cuts performance. Regular cleaning restores the filter and keeps the truck earning.',
+  text: 'A clogged DPF burns more fuel, cuts power and can put your truck into derate. Cleaning takes out the soot and ash that clog it.',
   rows: [
-    { title: 'Cost savings', text: 'Regular, affordable cleaning avoids the high cost of a replacement filter.' },
-    { title: 'Better performance', text: 'A clean filter keeps the engine running smoothly.' },
-    { title: 'Better fuel economy', text: 'Exhaust gases flow freely, so you burn less fuel.' },
-    { title: 'Emissions compliance', text: 'Stay within Illinois emission standards.' },
+    { title: 'Lower cost', text: 'Cleaning a filter costs far less than buying a new one.' },
+    { title: 'More power', text: 'A clogged filter holds the engine back. A clean one doesn’t.' },
+    { title: 'Less fuel', text: 'A clogged filter makes the engine burn more fuel.' },
+    { title: 'Emissions system', text: 'A clean filter helps the emissions system do its job.' },
   ] satisfies TitleText[],
 };
 
@@ -56,10 +56,10 @@ export const whatWeClean = {
 
 export const whoWeCleanFor = {
   title: 'Who we clean for',
-  items: ['Diesel trucks', 'Semi-trucks', 'Commercial fleets', 'Heavy-duty equipment', 'Passenger cars'],
+  items: ['Diesel trucks', 'Semi-trucks', 'Commercial fleets', 'Heavy-duty equipment', 'Diesel passenger vehicles'],
 };
 
 export const cta: Cta = {
-  title: 'Filter clogged? Bring it in.',
-  text: 'Call the shop, or send a request and we will call you back to set a time.',
+  title: 'DPF light on? Call for a quote.',
+  text: 'Call and tell us what the truck is doing. You’ll get a clear price before any work starts.',
 };

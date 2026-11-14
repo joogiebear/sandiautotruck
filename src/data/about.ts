@@ -1,47 +1,47 @@
 import type { Seo, TitleText } from './types';
 
 export const seo: Seo = {
-  title: 'About Sandi Auto & Truck Repair | Family-Owned in Willow Springs, IL',
+  title: 'Family-Owned Willow Springs Repair Shop | Sandi Auto & Truck',
   description:
-    'Sandi Auto & Truck Repair is a family-owned shop in Willow Springs, IL, serving Chicagoland for over 16 years with 65+ years of combined experience.',
+    'Sandi Auto & Truck Repair is a family-owned repair shop in Willow Springs, IL. In business for over 16 years, with most repairs done the same day.',
 };
 
 export const hero = {
   crumb: 'About',
-  title: 'Family-owned, serving Chicagoland for over 16 years',
-  lead: 'Sandi Auto & Truck Repair handles auto repair, diesel repair, brakes, engine diagnostics and transmission work, for cars, SUVs and heavy-duty trucks.',
+  title: 'A family-owned repair shop in Willow Springs, IL',
+  lead: 'Sandi Auto & Truck Repair has been fixing cars and trucks for over 16 years. We work on cars and SUVs, repair medium and heavy-duty trucks and clean diesel filters, all in one building on Corcoran Rd.',
 };
 
 export const stats = [
-  { value: '16+', label: 'years serving Chicagoland' },
+  { value: '16+', label: 'years in business' },
   { value: '65+', label: 'years of combined experience' },
   { value: 'Same day', label: 'for most repairs and maintenance' },
-  { value: 'In-house', label: 'every service, in our own shop' },
+  { value: 'In-house', label: 'all work done in our own building' },
 ];
 
 export const mission = {
-  eyebrow: 'Our mission',
-  title: 'Fast, reliable and affordable repairs, without compromising on quality.',
+  eyebrow: 'How we work',
+  title: 'We tell you the price first and charge only for the repairs your vehicle needs.',
   paragraphs: [
-    'With a combined 65+ years of industry experience, our team is dedicated to getting your vehicle back on the road quickly and safely.',
-    'We complete every service in-house, with your downtime, budget and time frame in mind. Whether you drive a car, an SUV or a heavy-duty truck, we have the expertise and the equipment for a wide range of repairs and maintenance.',
-    'When you choose Sandi Auto & Truck Repair, you are choosing a team that cares about your safety and satisfaction.',
+    'Tell us what it’s doing, whether that’s grinding brakes, a check engine light or a truck in derate. We’ll explain what we find and price it before any work starts.',
+    'The work stays in our own building. We change the oil in family SUVs, repair Volvo, Freightliner and Kenworth trucks, and clean DPF and DOC filters on our own equipment, all in the same shop. The team doing it has 65+ years of combined experience.',
+    'Most repairs and maintenance are finished the same day. We know that matters, whether it’s the car you commute in or the truck you work with.',
   ],
 };
 
 export const why = {
-  title: 'Why people choose us',
+  title: 'Why people come here',
   reasons: [
-    { title: 'Convenience', text: 'We make auto repair and maintenance easy and hassle-free.' },
-    { title: 'Expert team', text: 'Friendly, professional technicians who handle a wide range of work.' },
-    { title: 'Reliability', text: 'We get the job done right the first time.' },
-    { title: 'Efficiency', text: 'Most repairs and maintenance services are completed the same day.' },
-    { title: 'Customer first', text: 'We keep you informed and get you back on the road fast.' },
+    { title: 'Family-owned', text: 'We’re a family business, and we’ve been at it for over 16 years.' },
+    { title: '65+ years combined', text: 'That’s the experience of the team that works on your car or truck.' },
+    { title: 'Cars and heavy trucks', text: 'We work on cars, SUVs and light trucks, and on medium and heavy-duty trucks.' },
+    { title: 'Filter cleaning on site', text: 'We clean DPF and DOC filters here, on our own cleaning system.' },
+    { title: 'Price before work', text: 'We explain the job and give you a clear price before we start.' },
   ] satisfies TitleText[],
 };
 
-export const reviewsTitle = 'What our customers say';
+export const reviewsTitle = 'In our customers’ words';
 
 export const visit = {
-  title: 'Come see us',
+  title: 'Call us or come by',
 };
