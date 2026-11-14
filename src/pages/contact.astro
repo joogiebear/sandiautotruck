@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import VisitInfo from '../components/VisitInfo.astro';
+import MapEmbed from '../components/MapEmbed.astro';
+import AppointmentForm from '../components/AppointmentForm.astro';
+import Steps from '../components/Steps.astro';
+import { site } from '../data/site';
+import { seo, hero, next } from '../data/contact';
+---
+
+<Base title={seo.title} description={seo.description}>
+  <Hero crumb={hero.crumb} title={hero.title} lead={hero.lead} buttons={false} />
+
+  <section class="section main">
+    <div class="wrap columns">
+      <div class="info">
+        <div class="call">
+          <span class="pill">{site.hours.summary}</span>
+          <a class="number" href={site.phone.href}>{site.phone.display}</a>
+        </div>
+        <VisitInfo />
+        <div class="btn-row actions">
+          <a class="btn btn--primary" href={site.phone.href}>Call the shop</a>
+          <a class="btn btn--outline" href={site.directionsUrl} target="_blank" rel="noopener">Get directions</a>
+        </div>
+      </div>
+      <AppointmentForm />
+    </div>
+  </section>
+
+  <section class="map">
+    <div class="wrap">
+      <MapEmbed height={420} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h2">{next.title}</h2>
+      </div>
+      <Steps steps={next.steps} />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .main {
+    padding-top: clamp(40px, 6vw, 72px);
+  }
+
+  .columns {
+    display: grid;
+    gap: 40px 64px;
+    align-items: start;
+  }
+
+  .info {
+    display: grid;
+    gap: 28px;
+    min-width: 0;
+  }
+
+  .call {
+    display: grid;
+    justify-items: start;
+    gap: 16px;
+  }
+
+  .number {
+    color: var(--navy);
+    font-family: var(--font-head);
+    font-size: clamp(2.25rem, 1.6rem + 2.6vw, 3.25rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    text-decoration: none;
+  }
+
+  .number:hover {
+    color: var(--red);
+  }
+
+  /* On phones the same two buttons are already pinned to the bottom of the screen. */
+  @media (max-width: 719px) {
+    .actions {
+      display: none;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .columns {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    }
+  }
+</style>

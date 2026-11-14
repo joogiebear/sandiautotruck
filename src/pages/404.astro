@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import Buttons from '../components/Buttons.astro';
+import { site } from '../data/site';
+---
+
+<Base
+  title="Page not found | Sandi Auto & Truck Repair"
+  description="That page does not exist. Here is where to go instead."
+  noindex
+>
+  <section class="section section--tint">
+    <div class="wrap message">
+      <h1 class="h1">We could not find that page</h1>
+      <p class="lead">It may have moved when we rebuilt the site. These will get you where you were going:</p>
+      <ul>
+        <li><a href="/">Home</a></li>
+        {
+          site.nav.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <Buttons />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .message {
+    display: grid;
+    justify-items: start;
+    align-content: center;
+    gap: 20px;
+    min-height: 40vh;
+  }
+
+  .message :global(.btn-row) {
+    justify-self: stretch;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 28px;
+    list-style: none;
+    font-weight: 700;
+  }
+
+  li a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+</style>

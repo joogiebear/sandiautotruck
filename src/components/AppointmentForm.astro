@@ -1,0 +1,169 @@
+---
+/**
+ * Appointment request form. It posts to the form service set in
+ * src/data/site.ts, which emails the request to the shop.
+ * Until an access key is set, visitors see call and email buttons instead,
+ * so no request can be lost.
+ */
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+import { form } from '../data/contact';
+
+interface Props {
+  /** Prefix for field ids, needed only if two forms share a page. */
+  idPrefix?: string;
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { idPrefix = 'request', headingLevel: Heading = 'h2' } = Astro.props;
+const enabled = Boolean(site.form.accessKey);
+const thanksUrl = new URL('/thanks/', site.url).href;
+---
+
+{
+  enabled ? (
+    <form class="request" id="request" action={site.form.action} method="POST">
+      <Heading class="title">{form.title}</Heading>
+      <p class="intro">{form.intro}</p>
+
+      <input type="hidden" name="access_key" value={site.form.accessKey} />
+      <input type="hidden" name="subject" value="New appointment request from the website" />
+      <input type="hidden" name="from_name" value={`${site.shortName} website`} />
+      <input type="hidden" name="redirect" value={thanksUrl} data-thanks />
+      <input type="checkbox" name="botcheck" class="trap" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <div class="pair">
+        <div class="field">
+          <label for={`${idPrefix}-name`}>Name</label>
+          <input id={`${idPrefix}-name`} name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for={`${idPrefix}-phone`}>Phone</label>
+          <input id={`${idPrefix}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for={`${idPrefix}-service`}>What do you need?</label>
+        <select id={`${idPrefix}-service`} name="service">
+          {form.serviceOptions.map((option) => <option>{option}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for={`${idPrefix}-vehicle`}>Vehicle (year, make and model)</label>
+        <input id={`${idPrefix}-vehicle`} name="vehicle" type="text" />
+      </div>
+      <div class="field">
+        <label for={`${idPrefix}-message`}>What is going on?</label>
+        <textarea id={`${idPrefix}-message`} name="message" rows="4" required />
+      </div>
+
+      <button class="btn btn--primary" type="submit">{form.submit}</button>
+      <p class="note">
+        Need it today? Calling is faster: <a href={site.phone.href}>{site.phone.display}</a>
+      </p>
+    </form>
+  ) : (
+    <div class="request" id="request">
+      <Heading class="title">{form.offTitle}</Heading>
+      <p class="intro">{form.offText}</p>
+      <a class="btn btn--primary" href={site.phone.href}>
+        <Icon name="phone" />
+        <span>Call {site.phone.display}</span>
+      </a>
+      <a class="btn btn--outline" href={`mailto:${site.email}?subject=${encodeURIComponent('Appointment request')}`}>
+        <Icon name="mail" />
+        <span>Email the shop</span>
+      </a>
+      <p class="note">
+        {site.hours.days}, {site.hours.time}
+      </p>
+    </div>
+  )
+}
+
+<script is:inline>
+  // Send people back to the address they are on (a preview link or the real domain) after the form is sent.
+  document.querySelectorAll('[data-thanks]').forEach((field) => {
+    field.value = location.origin + '/thanks/';
+  });
+</script>
+
+<style>
+  .request {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: clamp(24px, 4vw, 40px);
+    background: var(--tint);
+    border-radius: var(--radius-lg);
+    scroll-margin-top: 24px;
+  }
+
+  .title {
+    font-size: clamp(1.625rem, 1.45rem + 0.8vw, 1.875rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+
+  .intro {
+    margin-top: -8px;
+  }
+
+  .pair {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: 20px;
+  }
+
+  .field {
+    display: grid;
+    gap: 6px;
+  }
+
+  label {
+    color: var(--navy);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  input[type='text'],
+  input[type='tel'],
+  select,
+  textarea {
+    width: 100%;
+    min-height: 52px;
+    padding: 12px 16px;
+    background: var(--white);
+    border: 1px solid var(--field-line);
+    border-radius: 12px;
+    color: var(--navy);
+    font: inherit;
+  }
+
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline-offset: 0;
+    border-color: var(--navy);
+    border-radius: 12px;
+  }
+
+  .trap {
+    display: none;
+  }
+
+  .note {
+    color: var(--muted);
+    font-size: 1rem;
+  }
+
+  .note a {
+    font-weight: 700;
+  }
+</style>

@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
+import DarkList from '../components/DarkList.astro';
+import Reasons from '../components/Reasons.astro';
+import Quote from '../components/Quote.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { reviews } from '../data/reviews';
+import { seo, hero, services, signs, expect, cta } from '../data/auto-repair';
+---
+
+<Base title={seo.title} description={seo.description}>
+  <Hero crumb={hero.crumb} title={hero.title} lead={hero.lead} facts={hero.facts}>
+    <Quote slot="aside" review={reviews.jenny} variant="card" />
+  </Hero>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h2">{services.title}</h2>
+        <p class="lead">{services.intro}</p>
+      </div>
+      <ServiceGrid items={services.items} callCard={services.callCard} />
+    </div>
+  </section>
+
+  <DarkList title={signs.title} text={signs.text} rows={signs.rows} />
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h2">{expect.title}</h2>
+      </div>
+      <Reasons reasons={expect.reasons} minWidth={280} />
+    </div>
+  </section>
+
+  <CtaBand title={cta.title} text={cta.text} />
+</Base>

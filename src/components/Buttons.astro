@@ -1,0 +1,22 @@
+---
+/** The standard pair: call the shop, plus one secondary action. */
+import { site } from '../data/site';
+
+interface Props {
+  secondary?: 'request' | 'directions' | 'none';
+}
+
+const { secondary = 'request' } = Astro.props;
+---
+
+<div class="btn-row">
+  <a class="btn btn--primary" href={site.phone.href}>Call {site.phone.display}</a>
+  {secondary === 'request' && <a class="btn btn--outline" href={site.requestHref}>Request an appointment</a>}
+  {
+    secondary === 'directions' && (
+      <a class="btn btn--outline" href={site.directionsUrl} target="_blank" rel="noopener">
+        Get directions
+      </a>
+    )
+  }
+</div>
